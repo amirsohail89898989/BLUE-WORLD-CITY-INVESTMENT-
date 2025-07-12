@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blueworld City Profit - 15% Daily</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f0f0f0; }
+    h1 { color: #0066cc; }
+    .plan { background: white; padding: 20px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    button { padding: 10px 20px; background: green; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    form { display: none; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 20px; }
+    input { margin-bottom: 10px; padding: 10px; width: 100%; }
+  </style>
+</head>
+<body>
+
+<h1>Blueworld City - 15% Daily Profit Plans</h1>
+<p><b>Note:</b> Earn 15% daily profit for 90 days!</p>
+
+
+    <div class="plan">
+      <h3>Plan 1 - Invest PKR 1000</h3>
+      <p><b>Daily Profit:</b> PKR 150 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 13500</p>
+      <button onclick="openForm('Plan 1 - PKR 1000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 2 - Invest PKR 2000</h3>
+      <p><b>Daily Profit:</b> PKR 300 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 27000</p>
+      <button onclick="openForm('Plan 2 - PKR 2000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 3 - Invest PKR 3000</h3>
+      <p><b>Daily Profit:</b> PKR 450 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 40500</p>
+      <button onclick="openForm('Plan 3 - PKR 3000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 4 - Invest PKR 4000</h3>
+      <p><b>Daily Profit:</b> PKR 600 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 54000</p>
+      <button onclick="openForm('Plan 4 - PKR 4000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 5 - Invest PKR 5000</h3>
+      <p><b>Daily Profit:</b> PKR 750 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 67500</p>
+      <button onclick="openForm('Plan 5 - PKR 5000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 6 - Invest PKR 6000</h3>
+      <p><b>Daily Profit:</b> PKR 900 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 81000</p>
+      <button onclick="openForm('Plan 6 - PKR 6000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 7 - Invest PKR 7000</h3>
+      <p><b>Daily Profit:</b> PKR 1050 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 94500</p>
+      <button onclick="openForm('Plan 7 - PKR 7000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 8 - Invest PKR 8000</h3>
+      <p><b>Daily Profit:</b> PKR 1200 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 108000</p>
+      <button onclick="openForm('Plan 8 - PKR 8000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 9 - Invest PKR 9000</h3>
+      <p><b>Daily Profit:</b> PKR 1350 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 121500</p>
+      <button onclick="openForm('Plan 9 - PKR 9000')">Buy Plan</button>
+    </div>
+    
+    <div class="plan">
+      <h3>Plan 10 - Invest PKR 10000</h3>
+      <p><b>Daily Profit:</b> PKR 1500 (15%)</p>
+      <p><b>Total in 90 Days:</b> PKR 135000</p>
+      <button onclick="openForm('Plan 10 - PKR 10000')">Buy Plan</button>
+    </div>
+    
+
+<form id="contact-form">
+  <h2>Buy Plan</h2>
+  <input type="text" name="user_name" placeholder="Your Name" required />
+  <input type="text" name="user_whatsapp" placeholder="WhatsApp Number" required />
+  <input type="text" name="user_plan" id="user_plan" readonly required />
+  <button type="submit">Submit</button>
+</form>
+
+<p><b>Easypaisa:</b> M. Farhan - 03319915139</p>
+<p><b>JazzCash:</b> Amir Sohail - 03499780098</p>
+<p><b>WhatsApp:</b> 03319915139</p>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  function openForm(planName) {
+    document.getElementById('contact-form').style.display = 'block';
+    document.getElementById('user_plan').value = planName;
+  }
+
+  emailjs.init("a49FVA6egPXwTOItk");
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    emailjs.sendForm("service_h78jy8f", "template_w5x41mh", this)
+      .then(() => {
+        alert("Form submitted successfully!");
+        this.reset();
+        document.getElementById('contact-form').style.display = 'none';
+      })
+      .catch((error) => {
+        alert("Form submission failed: " + JSON.stringify(error));
+      });
+  });
+</script>
+
+</body>
+</html>
